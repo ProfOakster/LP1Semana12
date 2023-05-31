@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace WriteStuff1
 {
@@ -7,10 +9,19 @@ namespace WriteStuff1
         static void Main(string[] args)
         {
             string path = args[0];
-            do
+            string input;
+            Queue<string> inputs = new Queue<string>();
+
+            while (true)
             {
-                
-            } while (string.Empty);
+                input = Console.ReadLine();
+                if (input != string.Empty)
+                    inputs.Enqueue(input);
+                else
+                    break;
+            }
+
+            File.WriteAllLines(path, inputs);
         }
     }
 }
