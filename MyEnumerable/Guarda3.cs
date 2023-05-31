@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyEnumerable
 {
-    public class Guarda3<T>
+    public class Guarda3<T> : IEnumerable<T>
     {
         private T slot0;
         private T slot1;
@@ -46,7 +47,17 @@ namespace MyEnumerable
             }
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            yield return slot0;
+            yield return slot1;
+            yield return slot2;
+        }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
     }
 }
