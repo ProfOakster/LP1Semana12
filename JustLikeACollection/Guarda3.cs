@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,7 +49,12 @@ namespace JustLikeACollection
 
         public void Add(T item)
         {
-            
+            if (Equals(slot0, default(T)))
+                slot0 = item;
+            else if (Equals(slot1, default(T)))
+                slot1 = item;
+            else if (Equals(slot2, default(T)))
+                slot2 = item;
         }
 
         public IEnumerator<T> GetEnumerator()
